@@ -82,27 +82,12 @@
 
 
               <!-- Flash-on-tap overlay -->
-              <fa-modifier fa-opacity="0" id="{{'number-button-' + $index}}" fa-translate="[0,0,50]">
-                <fa-surface ng-if="numberButton.number !== ''" fa-size="sizes.numberButton" fa-tap="buttonTap($index, numberButton)" fa-click="buttonTap($index, numberButton)" fa-pipe-to="enginePipe">
+              <fa-modifier fa-opacity="numberButton.opacity" fa-translate="[0,0,50]">
+                <fa-surface ng-if="numberButton.number !== ''" fa-size="sizes.numberButton" fa-tap="buttonTap($index, numberButton)" fa-click="buttonTap(numberButton)" fa-pipe-to="enginePipe">
                   <img class="ring" src="images/lock-screen/number-button-fill.svg" />
                 </fa-surface>
               </fa-modifier>
-              <fa-animation id="{{'number-button-animation-' + $index}}" duration="400">
-                <animate  targetModSelector="{{'#number-button-' + $index}}"
-                          field="opacity"
-                          startValue="0"
-                          endValue=".7"
-                          curve="linear"
-                          timelineLowerBound="0"
-                          timelineUpperBound=".01"/>
-                <animate  targetModSelector="{{'#number-button-' + $index}}"
-                          field="opacity"
-                          startValue=".7"
-                          endValue="0"
-                          curve="outQuad"
-                          timelineLowerBound=".1"
-                          timelineUpperBound="1"/>
-              </fa-animation>
+              
 
               <fa-surface fa-size="sizes.numberButton" class="number-button">
                 <div class="number">{{numberButton.number}}</div>

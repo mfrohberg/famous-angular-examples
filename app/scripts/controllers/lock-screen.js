@@ -3,6 +3,7 @@
 angular.module('integrationApp')
   .controller('LockScreenCtrl', function ($scope, $famous) {
     var EventHandler = $famous['famous/core/EventHandler'];
+    var Transitionable = $famous['famous/transitions/Transitionable'];
     var Engine = $famous['famous/core/Engine'];
     $scope.enginePipe = new EventHandler();
     Engine.pipe($scope.enginePipe);
@@ -59,18 +60,27 @@ angular.module('integrationApp')
     }
 
     $scope.numberButtons = [
-      { number: 1, letters: ""},
-      { number: 2, letters: "ABC"},
-      { number: 3, letters: "DEF"},
-      { number: 4, letters: "GHI"},
-      { number: 5, letters: "JKL"},
-      { number: 6, letters: "MNO"},
-      { number: 7, letters: "PQRS"},
-      { number: 8, letters: "TUV"},
-      { number: 9, letters: "WXYZ"},
-      { number: "",letters: ""},
-      { number: 0, letters: ""}
+      { number: 1, letters: "", opacity: new Transitionable(0)},
+      { number: 2, letters: "ABC", opacity: new Transitionable(0)},
+      { number: 3, letters: "DEF", opacity: new Transitionable(0)},
+      { number: 4, letters: "GHI", opacity: new Transitionable(0)},
+      { number: 5, letters: "JKL", opacity: new Transitionable(0)},
+      { number: 6, letters: "MNO", opacity: new Transitionable(0)},
+      { number: 7, letters: "PQRS", opacity: new Transitionable(0)},
+      { number: 8, letters: "TUV", opacity: new Transitionable(0)},
+      { number: 9, letters: "WXYZ", opacity: new Transitionable(0)},
+      { number: "",letters: "", opacity: new Transitionable(0)},
+      { number: 0, letters: "", opacity: new Transitionable(0)}
     ];
+
+    $scope.buttonTap = function(numberButton){
+      if(!_inputLocked){
+        $scope.shiftInputDots();
+        numberButton.opacity.set(1);
+        numberButton.opacity.set(0, {duration: 400, curve: 'linear'});
+      }
+    };
+
 
     $scope.inputDots = [
       {val: false},
@@ -78,13 +88,6 @@ angular.module('integrationApp')
       {val: false},
       {val: false}
     ];
-
-
-
-
-
-
-
 
     $scope.testLog = function(arg) {
       console.log('test', arg);
@@ -141,13 +144,6 @@ angular.module('integrationApp')
       }
     };
 
-    $scope.buttonTap = function(index, numberButton){
-      console.log('pressed', numberButton.number);
-      if(!_inputLocked){
-        $scope.shiftInputDots();
-        $scope.fireButtonAnimation(index);
-      }
-    }
 
     $scope.fireButtonAnimation = function(index){
       $famous.find('#number-button-animation-' + index)[0].replay();
