@@ -41,10 +41,10 @@ angular.module('integrationApp',['famous.angular', 'ui.router'])
         templateUrl: "views/header-footer-layout.html",
         controller: "HeaderFooterLayoutCtrl"
       }) 
-      .state("grid-layout", {
-        url: "/grid-layout",
-        templateUrl: "views/grid-layout.html",
-        controller: "GridLayoutCtrl"
+      .state("perspective", {
+        url: "/perspective",
+        templateUrl: "views/perspective.html",
+        controller: "PerspectiveCtrl"
       }) 
       .state("flexible-layout", {
         url: "/flexible-layout",
