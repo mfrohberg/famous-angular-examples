@@ -1,11 +1,6 @@
 <fa-app style="height: 568px; width: 320px; margin: 0;">
   <fa-surface fa-background-color="'#FFF'"></fa-surface>
   <fa-grid-layout fa-options="gridLayoutOptions">
-    <fa-surface fa-background-color="'#F00'">1</fa-surface>
-    <fa-surface fa-background-color="'#FF0'">2</fa-surface>
-    <fa-surface fa-background-color="'#0F0'">3</fa-surface>
-    <fa-surface fa-background-color="'#0FF'">4</fa-surface>
-    <fa-surface fa-background-color="'#00F'">5</fa-surface>
-    <fa-surface fa-background-color="'#F0F'">6</fa-surface>
+    <fa-surface ng-repeat="element in gridElements" fa-background-color="element.backgroundColor">{{element.index}}</fa-surface>
   </fa-grid-layout>
 </fa-app>

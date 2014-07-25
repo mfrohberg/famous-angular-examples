@@ -41,6 +41,11 @@ angular.module('integrationApp',['famous.angular', 'ui.router'])
         templateUrl: "views/header-footer-layout.html",
         controller: "HeaderFooterLayoutCtrl"
       })
+      .state("grid-layout", {
+        url: "/grid-layout",
+        templateUrl: "views/grid-layout.html",
+        controller: "GridLayoutCtrl"
+      })
       .state("nested-scroll-view", {
         url: "/nested-scroll-view",
         templateUrl: "views/nested-scroll-view.html",
