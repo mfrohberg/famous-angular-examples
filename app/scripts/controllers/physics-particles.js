@@ -67,15 +67,6 @@ angular.module('integrationApp')
     });
     physicsEngine.attach(gravity, $scope.circles, ground);
 
-
-    //set up mutual attraction
-    var mutualAttraction = new Repulsion({
-      strength: .000001
-    });
-    _.each($scope.circles, function(circ){
-      physicsEngine.attach(mutualAttraction, $scope.circles, circ);
-    })
-
     //set up snap
     var snap = new Snap({anchor: [0, 0, 0]});
     physicsEngine.attach(snap, $scope.circles);
