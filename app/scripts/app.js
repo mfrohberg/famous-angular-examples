@@ -31,6 +31,11 @@ angular.module('integrationApp',['famous.angular', 'ui.router'])
         url: "/physics",
         templateUrl: "views/physics.html"
       })
+      .state("physics-particles", {
+        controller: "PhysicsParticlesCtrl",
+        url: "/physics-particles",
+        templateUrl: "views/physics-particles.html"
+      })
       .state("ng-class", {
         url: "/ng-class",
         templateUrl: "views/ng-class.html",
