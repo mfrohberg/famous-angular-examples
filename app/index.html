@@ -57,29 +57,10 @@
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="bower_components/angular-touch/angular-touch.js"></script>
-        <script src="bower_components/requirejs/require.js"></script>
+
+        <script src="bower_components/famous/famous-global.js"></script>
         <script src="bower_components/famous-angular/dist/famous-angular.js"></script>
         <!-- endbower -->
-
-        <script>
-            //shim angular module to support 'presenter'
-            //TODO:  move into library
-            (function() {
-                var originalModule = angular.module;
-                angular.module = function() {
-                    var module = originalModule.apply(this, arguments);
-                    module.presenter = function() {
-                        module.controller.apply(this, arguments)
-                    };
-                    return module;
-                }
-            }());
-
-            // tell requirejs where to find the famous lib
-            require.config({
-                baseUrl: "bower_components/"
-            });
-        </script>
 
         <!--SCRIPTS-->
         <script src="scripts/app.js"></script>
