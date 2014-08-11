@@ -8,8 +8,8 @@ angular.module('integrationApp')
     var _trans = [0, 0, 0];
     var _tick = 0;
 
-    var _amplitude = 568;
-    var _offset = -284;
+    var _amplitude = 368;
+    var _offset = -484;
 
     $scope.getTranslate = function(){
       return _trans;
@@ -19,7 +19,7 @@ angular.module('integrationApp')
     Timer.every(function(){
       _tick+= .01;
       _trans[0] = Math.sin(_tick) * _amplitude + _offset;
-      _trans[1] = Math.sin(_tick) * _amplitude + _offset;
+      _trans[1] = Math.cos(_tick) * _amplitude + _offset;
     }, 1)
 
   });
