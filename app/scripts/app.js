@@ -17,6 +17,11 @@ angular.module('integrationApp',['famous.angular', 'ui.router'])
         templateUrl: "views/animations.html",
         controller: "AnimationsCtrl"
       })
+      .state("container-surface", {
+        url: "/container-surface",
+        templateUrl: "views/container-surface.html",
+        controller: "ContainerSurfaceCtrl"
+      })
       .state("cuboid", {
         url: "/cuboid",
         templateUrl: "views/cuboid.html",
