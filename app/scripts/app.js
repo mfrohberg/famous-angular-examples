@@ -32,6 +32,11 @@ angular.module('integrationApp',['famous.angular', 'ui.router'])
         templateUrl: "views/cuboid-field.html",
         controller: "CuboidFieldCtrl"
       })
+      .state("draggable", {
+        url: "/draggable",
+        templateUrl: "views/draggable.html",
+        controller: "DraggableCtrl"
+      })
       .state("transitionables", {
         url: "/transitionables",
         templateUrl: "views/transitionables.html",
