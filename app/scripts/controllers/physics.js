@@ -4,6 +4,7 @@ angular.module('integrationApp')
   .controller('PhysicsCtrl', function ($scope, $famous) {
     var PhysicsEngine = $famous['famous/physics/PhysicsEngine'];
     var Circle = $famous['famous/physics/bodies/Circle'];
+    var Transitionable = $famous['famous/transitions/Transitionable'];
     var Wall = $famous['famous/physics/constraints/Wall'];
     var Walls = $famous['famous/physics/constraints/Walls'];
     var Collision = $famous['famous/physics/constraints/Collision'];
@@ -28,10 +29,21 @@ angular.module('integrationApp')
         position: [Math.random() * WIDTH, Math.random() * HEIGHT]
       });
       physicsEngine.addBody(circ);
+      circ.show = true;
+      circ.opacity = new Transitionable(1);
       circ._id = Math.random();
       $scope.colorMap[circ._id] = _.sample(COLORS);
       return circ;
     });
+
+    $scope.handleExit = function(circle, $done){
+      console.log('exit')
+      circle.opacity.set(0, {duration: 400, curve: 'linear'}, $done);
+    };
+
+    $scope.handleClick = function(circle){
+      circle.show = false;
+    };
 
     console.log($scope.colorMap);
 
