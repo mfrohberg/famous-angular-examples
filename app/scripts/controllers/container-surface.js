@@ -15,6 +15,11 @@ angular.module('integrationApp')
       return _trans;
     }
 
+    $scope.imgs = [{}];
+
+    $scope.remove = function(){
+      $scope.imgs.pop();
+    }
 
     Timer.every(function(){
       _tick+= .01;
