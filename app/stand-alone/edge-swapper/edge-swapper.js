@@ -28,7 +28,6 @@ angular.module('edge-swapper').controller('EdgeSwapperCtrl', function($scope){
   }
   $scope.getSrc = function(){
     var ret = 'views/' + srcs[index] + '.html';
-    console.log('src', ret);
     return ret;
   }
 });
