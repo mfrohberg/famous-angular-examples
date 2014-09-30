@@ -44,6 +44,12 @@ angular.module('integrationApp')
       }
     });
 
+    $scope.scrollListener = new EventHandler();
+
+    $scope.scrollListener.on('update', function(evt){
+      console.log('scroll started');
+    })
+
     setInterval(function(){
       for(var i = 0; i < ELEMENTS; i++){
         $scope.surfs[i].content = _.sample(strings);
