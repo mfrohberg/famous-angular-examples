@@ -26,6 +26,7 @@ angular.module('edge-swapper').controller('EdgeSwapperCtrl', ['$scope','$state',
     index = (index + 1) % 3;
     _opt.overlap = !_opt.overlap;
     $scope.$apply(); 
+    //$state.go(srcs[index]); // uncomment if using ui-view
   }
   
   $scope.getSrc = function(){
@@ -42,4 +43,4 @@ angular.module('edge-swapper').controller('EdgeSwapperCtrl', ['$scope','$state',
   $scope.getOptions = function(){
     return _opt;
   };
-});
+}]);
