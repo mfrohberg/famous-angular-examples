@@ -24,10 +24,22 @@ angular.module('edge-swapper').controller('EdgeSwapperCtrl', function($scope){
 
   window.onclick = function(){
     index = (index + 1) % 3;
+    _opt.overlap = !_opt.overlap;
     $scope.$apply(); 
   }
+  
   $scope.getSrc = function(){
     var ret = 'views/' + srcs[index] + '.html';
     return ret;
   }
+
+  var _opt = {
+    outTransition: true,
+    inTransition: true,
+    overlap: true
+  }; 
+
+  $scope.getOptions = function(){
+    return _opt;
+  };
 });
