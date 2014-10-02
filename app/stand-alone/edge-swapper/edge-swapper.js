@@ -18,7 +18,7 @@ angular.module('edge-swapper', ['ui.router', 'famous.angular'])
 
   });
 
-angular.module('edge-swapper').controller('EdgeSwapperCtrl', function($scope){
+angular.module('edge-swapper').controller('EdgeSwapperCtrl', ['$scope','$state', function($scope, $state){
   var srcs = ['a', 'b', 'c'];
   var index = 0;
 
