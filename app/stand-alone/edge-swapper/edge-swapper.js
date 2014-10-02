@@ -18,16 +18,17 @@ angular.module('edge-swapper', ['ui.router', 'famous.angular'])
 
   });
 
-angular.module('edge-swapper').controller('EdgeSwapperCtrl', function($scope){
+angular.module('edge-swapper').controller('EdgeSwapperCtrl', ['$scope','$state', function($scope, $state){
   var srcs = ['a', 'b', 'c'];
   var index = 0;
 
   window.onclick = function(){
     index = (index + 1) % 3;
-    $scope.$apply(); 
+    $state.go(srcs[index]); // comment if not using ui-view
+    //$scope.$apply(); // uncomment if not using ui-view
   }
   $scope.getSrc = function(){
     var ret = 'views/' + srcs[index] + '.html';
     return ret;
   }
-});
+}]);
